@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Interning at Simprints"
-date:   2021-07-24 17:36:55 +0100
+date:   2021-08-23 13:42:00
 categories: linked post
 ---
 
