@@ -49,3 +49,10 @@ $on-laptop:        800px !default;
   "minima/layout",
   "minima/syntax-highlighting"
 ;
+
+.videoDiv
+{
+    width: 50%; /*or whatever % you prefer*/
+    margin: 0 auto;
+    display: block;
+}
