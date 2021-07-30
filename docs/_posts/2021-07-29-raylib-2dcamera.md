@@ -16,9 +16,7 @@ Welcome to my beginners tutorial about the 2D camera in the [raylib library](htt
 
 To start, let's set the scene without the camera. Here is a basic game. You have your player, a red box, and you can move it around. Up, down, left, right. If you already know this, feel free to skip to the next part.
 
-<video style="display:block; margin: 0 auto; padding: 0px 0px 0px 0px;" muted controls>
-  <source src="/assets/raylib-2dcamera/pre_camera.webm" type="video/mp4">
-</video> 
+![](/assets/raylib-2dcamera/pre_camera.gif){: .center-image }
 
 {:refdef: style="text-align: center;"}
 **[1-Basic-Scene](https://github.com/ArchieAtkinson/raylib-2dcamera-tutorial/tree/main/1-Basic-Scene)**
@@ -83,9 +81,7 @@ Now the draw function is just as simple. We start with the raylib function `Begi
 
 That's all there is too it really. But there is now an issue, let's say we want to move somewhere past the pink boarder. Let's see what happens. 
 
-<video style="display:block; margin: 0 auto; padding: 0px 0px 0px 0px;" muted controls>
-  <source src="/assets/raylib-2dcamera/great_escape.webm" type="video/mp4">
-</video> 
+![](/assets/raylib-2dcamera/great_escape.gif){: .center-image }
 
 And off we go. We have now exited the screen. So what happened? Well, it's simple, as we saw on the update function. If the right arrow is the pressed, we increase the x position of the player, and eventually that position will be greater than the screen width. Therefore, the player will no longer to be visible.
 
@@ -148,7 +144,7 @@ void draw(){
 
 Very similar to what we had before. We have now added the `BeginMode2D()` function after the `ClearBackground()` function. This is because we want to clear the frame right before anything else happens, so putting it before `BeginMode2D()` just makes sure that we stick to that. Then just before `EndDrawing()` we added `EndMode2D()`, this ensures all the camera stuff is sorted before we switch buffer. Now everything between our two new functions will be drawn with respect to the game world and not the screen. Let's see what this looks like. 
 
-![](/assets/raylib-2dcamera/Camera_Default.png) {: .center-image }
+![](/assets/raylib-2dcamera/Camera_Default.png){: .center-image }
 
 {:refdef: style="text-align: center;"}
 **[2-Camera-Added](https://github.com/ArchieAtkinson/raylib-2dcamera-tutorial/tree/main/2-Camera-Added)**
@@ -189,9 +185,7 @@ void update(){
 }
 ```
 
-<video style="display:block; margin: 0 auto; padding: 0px 0px 0px 0px;" muted controls>
-  <source src="/assets/raylib-2dcamera/top_left_target.webm" type="video/mp4">
-</video> 
+![](/assets/raylib-2dcamera/top_left_target.gif){: .center-image }
 
 {:refdef: style="text-align: center;"}
 **[3-Camera-Follow-Player-1](https://github.com/ArchieAtkinson/raylib-2dcamera-tutorial/tree/main/3-Camera-Follow-Player-1)**
@@ -239,9 +233,7 @@ camera.rotation = 0.0f;
 camera.zoom = 1.0f;
 ```
 
-<video style="display:block; margin: 0 auto; padding: 0px 0px 0px 0px;" muted controls>
-  <source src="/assets/raylib-2dcamera/player_center_following.webm" type="video/mp4">
-</video>
+![](/assets/raylib-2dcamera/player_center_following.gif){: .center-image }
 
 {:refdef: style="text-align: center;"}
 **[3-Camera-Follow-Player-3](https://github.com/ArchieAtkinson/raylib-2dcamera-tutorial/tree/main/3-Camera-Follow-Player-3)**
