@@ -4,15 +4,6 @@ title: About
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+Oh Hello, I wasn't expecting to see you here but since you are I might as well introduce my self. My name is Archie Atkinson. I'm an Electronics Engineer based in the UK that enjoys writing about tech. 
 
-You can find the source code for Minima at GitHub:
-[jekyll][jekyll-organization] /
-[minima](https://github.com/jekyll/minima)
-
-You can find the source code for Jekyll at GitHub:
-[jekyll][jekyll-organization] /
-[jekyll](https://github.com/jekyll/jekyll)
-
-
-[jekyll-organization]: https://github.com/jekyll
+Hope you enjoy your time here, feel free to leave a comment on my [github](https://github.com/ArchieAtkinson/archieatkinson.github.io/issues/3), [tweet at me](https://twitter.com/eggsmilknflour) or shoot me an [email](mailto:inbox@archieatkinson.com).

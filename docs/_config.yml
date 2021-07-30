@@ -20,11 +20,12 @@
 
 title: Archie Atkinson
 description: >- # this means to ignore newlines until "baseurl:"
-    Electronic's Engineer
+    An Electronic Engineers blog
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "http://archieatkinson.com" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  ArchieAtkinson
-
+twitter_username: eggsmilknflour
+email: inbox@archieatkinson.com
 permalink: :title
 
 # Build settings
