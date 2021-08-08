@@ -8,15 +8,13 @@ categories: tutorial
 ---
 
 
-
-
-Welcome to my beginners tutorial about the 2D camera in the [raylib library](https://www.raylib.com/). For those unaware,  raylib is a great, simple and easy to use C library for game development. The 2D camera feature itself is quite simple, however if you have never used it before it can be hard to get your head around. The aim of this post is to get you comfortable with basics of the 2d camera to get you started. All the code shown here will be on the [github repo](https://github.com/ArchieAtkinson/raylib-2dcamera-tutorial). I have split the code for the article into five folders, each is a self -contained copy of the code up to a point in the article. I will link to each one when we have caught up to it. Now let's get going.
+Welcome to my beginners tutorial for the 2D camera in the [raylib library](https://www.raylib.com/). For those unaware,  raylib is a great, simple and easy to use C library for game development. The 2D camera feature itself is quite simple, however if you have never used it before it can be hard to get your head around. The aim of this post is to get you comfortable with basics of the 2d camera to get you started. All the code shown here will be on the [github repo](https://github.com/ArchieAtkinson/raylib-2dcamera-tutorial). I have split the code for the article into five folders, each is a self -contained copy of the code up to a point in the article. I will link to each one when we have caught up to it. Now let's get going.
 
 ## Setting the Scene
 
 To start, let's set the scene without the camera. Here is a basic game. You have your player, a red box, and you can move it around. Up, down, left, right. If you already know this, feel free to skip to the next part.
 
-![](/assets/raylib-2dcamera/pre_camera.gif){: .center-image }
+![A gif showing a program window with the title "Understanding the 2D Camera in Raylib" at the top. Inside the window is a skyblue background with a thin pink boarder. There is a small red square moving around.](/assets/raylib-2dcamera/pre_camera.gif){: .center-image }
 
 {:refdef: style="text-align: center;"}
 **[1-Basic-Scene](https://github.com/ArchieAtkinson/raylib-2dcamera-tutorial/tree/main/1-Basic-Scene)**
@@ -81,7 +79,7 @@ Now the draw function is just as simple. We start with the raylib function `Begi
 
 That's all there is too it really. But there is now an issue, let's say we want to move somewhere past the pink boarder. Let's see what happens. 
 
-![](/assets/raylib-2dcamera/great_escape.gif){: .center-image }
+![A gif showing the same window as before but now the red cube is moving to the right. It keeps moving until it moves outside of the window and is no longer visible.](/assets/raylib-2dcamera/great_escape.gif){: .center-image }
 
 And off we go. We have now exited the screen. So what happened? Well, it's simple, as we saw on the update function. If the right arrow is the pressed, we increase the x position of the player, and eventually that position will be greater than the screen width. Therefore, the player will no longer to be visible.
 
@@ -91,7 +89,7 @@ So how do we overcome this? The camera of course!
 In a 2D video game, you have two coordinate systems. You have the world and you have the camera. With a simple game like Tetris or Snake, the world and the camera are the same. But once, your level is bigger than the screen it's being displayed on. The camera coordinate system becomes a subset of the world coordinate system. The Pokémon games are a great example of this. As you move through the level, the camera follows you. You can see this in the image below. The top left-hand corner is the world origin (this isn't actually where it is in the real game, just put there for this example) and then you have the camera centered around the player, with its own origin in the top left-hand corner.
 
 
-![](/assets/raylib-2dcamera/Pokemon.png){: .center-image }
+![An image from Pokemon Fire Red in Pallet Town. The view is more zoomed out then normal allowing view of all of Pallet Town. There is a pink circle in the top left-hand corner with writing "World Origin" next to it. In the center of the image is the player (Ash). Over-layed on top of them is a transparent grey rectangle signifying the camera. In the top left-hand corner of this box is a pink circle with the text "Camera Origin" next to it.](/assets/raylib-2dcamera/Pokemon.png){: .center-image }
 
 
 In this example the player could be at the coordinates (2000, 1000) in the world whilst at the coordinates (500, 500) in the camera's reference.  
@@ -144,7 +142,7 @@ void draw(){
 
 Very similar to what we had before. We have now added the `BeginMode2D()` function after the `ClearBackground()` function. This is because we want to clear the frame right before anything else happens, so putting it before `BeginMode2D()` just makes sure that we stick to that. Then just before `EndDrawing()` we added `EndMode2D()`, this ensures all the camera stuff is sorted before we switch buffer. Now everything between our two new functions will be drawn with respect to the game world and not the screen. Let's see what this looks like. 
 
-![](/assets/raylib-2dcamera/Camera_Default.png){: .center-image }
+![An image of the window with the red box in the centre. No change from the previous gifs.](/assets/raylib-2dcamera/Camera_Default.png){: .center-image }
 
 {:refdef: style="text-align: center;"}
 **[2-Camera-Added](https://github.com/ArchieAtkinson/raylib-2dcamera-tutorial/tree/main/2-Camera-Added)**
@@ -185,7 +183,7 @@ void update(){
 }
 ```
 
-![](/assets/raylib-2dcamera/top_left_target.gif){: .center-image }
+![A gif of the window but now the centre of the red square is in the top left-hand corner and only one quarter of is it visible. The lines that were once bordering the window have met a similar fate as the red square and now the bottom right-hand corner is in the centre of the screen. As the gif plays the player stays seems to stay still as bottom right-hand of the border moves around the screen.](/assets/raylib-2dcamera/top_left_target.gif){: .center-image }
 
 {:refdef: style="text-align: center;"}
 **[3-Camera-Follow-Player-1](https://github.com/ArchieAtkinson/raylib-2dcamera-tutorial/tree/main/3-Camera-Follow-Player-1)**
@@ -217,7 +215,7 @@ void draw(){
 Let's give it a spin.
 
 {:refdef: style="text-align: center;"}
-![](/assets/raylib-2dcamera/Boarders_back.png)
+![This image shows the border back to surrounding the window but the red square is still in the bottom top left-hand corner.](/assets/raylib-2dcamera/Boarders_back.png)
 {: refdef}
 
 {:refdef: style="text-align: center;"}
@@ -233,13 +231,13 @@ camera.rotation = 0.0f;
 camera.zoom = 1.0f;
 ```
 
-![](/assets/raylib-2dcamera/player_center_following.gif){: .center-image }
+![In this gif it starts with the red square in the middle of the screen with the skyblue background and pink border as we started we. There are now also around 10 different coloured (yellow, green, pink , orange) circles in the background. As the player moves these circles stay still as the camera follows the player.](/assets/raylib-2dcamera/player_center_following.gif){: .center-image }
 
 {:refdef: style="text-align: center;"}
 **[3-Camera-Follow-Player-3](https://github.com/ArchieAtkinson/raylib-2dcamera-tutorial/tree/main/3-Camera-Follow-Player-3)**
 {: refdef}
 
-And there we have it, we are following the player. If you are wondering where those circles came from, I add a function to generate and draw random circles in the world, so we could see the movement more clearly (You can checkout the [github](https://github.com/ArchieAtkinson/raylib-2dcamera-tutorial/tree/main/3-Camera-Follow-Player-3) for the code used.).
+And there we have it, we are following the player. If you are wondering where those circles came from, I add a function to generate and draw random circles in the world, so we could see the movement more clearly (code for this is on [github](https://github.com/ArchieAtkinson/raylib-2dcamera-tutorial/blob/main/5-Camera-Follow-Player-3/src/main.c)).
 
 ## Closing 
 
@@ -251,9 +249,9 @@ So what did we learn (I hope):
 - The `target` member of the `Camera2D` structure sets where the origin of the camera is in the world coordinate system.
 - The `offset` member of the `Camera2D` structure sets where the origin of the camera is on the screen. 
 
-There is a lot more you can do with the 2D camera (you still have zoom and rotate to play with!) and I would suggest you play around with the provided code to see what you can come up with. If you would like some inspiration, this Google doc called [[Scroll Back - The Theory and Practice of Cameras in Side-Scrollers by Itay Keren]] is a great showcase of different camera usage in side scrollers. I have also added a [BONUS](https://github.com/ArchieAtkinson/raylib-2dcamera-tutorial/tree/main/BONUS) folder to the github which has an extra demo for you to test out. For some more complex examples, check out the 2d camera_platform example on the raylib git or [on the website](https://www.raylib.com/examples.html). 
+There is a lot more you can do with the 2D camera (you still have zoom and rotate to play with!) and I would suggest you play around with the provided code to see what you can come up with. If you would like some inspiration, a Google doc called [Scroll Back - The Theory and Practice of Cameras in Side-Scrollers by Itay Keren](https://docs.google.com/document/d/1iNSQIyNpVGHeak6isbP6AHdHD50gs8MNXF1GCf08efg/pub) is a great showcase of different camera usage in side scrollers. I have also added a [BONUS](https://github.com/ArchieAtkinson/raylib-2dcamera-tutorial/tree/main/BONUS) folder to the github which has an extra demo for you to test out. For some more complex examples, check out the 2d camera_platform example on the raylib git or [on the website](https://www.raylib.com/examples.html). 
 
-I hope you found this helpful, if you have any questions, comments or feedback feel free leave a comment on the [blogs github issue tracker](https://github.com/ArchieAtkinson/archieatkinson.github.io/issues/2)(I will work out proper commenting system one day...) or any of the links in the footer below. Thanks for reading!
+I hope you found this helpful, if you have any questions, comments or feedback feel free leave a comment on the [blogs github issue tracker](https://github.com/ArchieAtkinson/archieatkinson.github.io/issues/2) (I will work out proper commenting system one day...) or any of the links in the footer below. Thanks for reading!
 
 
-P.S An extra trick is the `GetWorldToScreen2D()` and the `GetScreenToWorld2D()` functions to help you move between the two coordinate systems. 
+P.S An extra trick is the `GetWorldToScreen2D()` and the `GetScreenToWorld2D()` functions to help you move between the two coordinate systems. Check them out in the [raylib cheatsheet](https://www.raylib.com/cheatsheet/cheatsheet.html).
