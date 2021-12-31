@@ -2,7 +2,7 @@
 
 layout: post
 title: "Understanding the 2D Camera in Raylib"
-date:   2021-12-31 22:35:00 +0000
+date:   2021-12-31 20:00:00 +0000
 categories: tutorial
 
 ---
@@ -11,7 +11,7 @@ Welcome to my beginners tutorial for the 2D camera in the [raylib library](https
 
 Before we get going I want to lay my cards on the table. I am still very new to raylib and game development. I am writing this tutorial because I struggled with the 2d camera when first starting out. The API is very simple and easy to use but the concept was very new to me and it took me longer than I would have expected to get it. So the main purpose of this tutorial isn't to teach you how to code, but to help create an understanding of the 2d camera so you can use it effectively. 
 
-If you would like to skip straight to some code, [here is the github gist](https://gist.github.com/ArchieAtkinson/1a34eaedbf95e16eed6dedd374aeb61a).
+If you would like to skip straight to some code, [here is the github gist](https://gist.github.com/ArchieAtkinson/5c5758ad68d5cfd55d40430ca8e9b44d).
 
 ## What is the camera trying to solve?
 In a video game the world can range from a 2D pixel art dungeon in a rouge like to a realistic 3D war torn city in an FPS. It's the part of the game that the player sees and interacts with. A good way to see a game world is like a movie or TV sets instead of like the real world. They are crafted in order to trick the player into believing the world being shown is bigger, and more elaborate than it is. And in order to that effectively, like a movie or TV set, they use one or more camera's allowing different the switching to different perspectives easily. It can also be used to create a better game play experience, for example in most first person games when you get into a vehicle you are switched into a third person view to make driving easier. The way the camera acts in a game can make or break it so understanding how they work is an essential skill. This article will explore the most basic instance of using a camera and how we can implement it in raylib.
@@ -74,9 +74,11 @@ void draw(){
 
 	BeginMode2D(camera);
 
-		draw_grid();
-	 
-		DrawRectangle(0 - SQUARE_SIZE/2.0f, 0 - SQUARE_SIZE/2.0f, SQUARE_SIZE, SQUARE_SIZE, RED);
+        draw_grid_background();
+        
+        draw_axis();
+
+        draw_player(player);
 
 	EndMode2D();
 
