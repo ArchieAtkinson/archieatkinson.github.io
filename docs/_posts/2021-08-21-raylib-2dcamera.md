@@ -43,16 +43,19 @@ The target member is the camera's origin in the world. By default, when the offs
 
 ![](/assets/raylib-2dcamera/Target.png){: .center-image }
 
+Note: If you want this to follow a object like a player, this needs to be updated every time the player moves!
 
 ### Offset
 
-The offset member is the origin of the camera on the screen. By default, it is in the top left corner. Changing the offset to `{SCREEN_WIDTH/2, SCREEN_HEIGHT/2}` moves the origin of the camera to the centre screen making the target now reference the centre instead of the top left corner. Using the example from above with the new offset, if the target was set to {-100, -200} you would now see anything drawn in the world from {-350, -450} (top left corner) to {150, 50} (bottom right corner). The target is now in the centre of screen. 
+The offset member is the origin of the camera on the screen. By default, it is in the top left corner. Changing the offset to `{SCREEN_WIDTH/2, SCREEN_HEIGHT/2}` moves the origin of the camera to the centre screen making the target now reference the centre instead of the top left corner. Using the example from above with the new offset, if the target was set to {-100, -200} you would now see anything drawn in the world from {-350, -450} (top left corner) to {150, 50} (bottom right corner). The target is now in the centre of screen.
 
 ![](/assets/raylib-2dcamera/Offset.png){: .center-image }
 
+Note: Unlike target, once this is set, you only need to change it if you want to change the relative position of the object to the screen.
+
 ### Rotation and Zoom
 
-The rotation and zoom members are is pretty self explanatory, just remember that they are centred around the target. Just remember that by default zoom equals one, not zero. 
+The rotation and zoom members are is pretty self explanatory, just remember that they are centred around the target and that by default zoom equals one, not zero. 
 
 ### Putting it in action
 
@@ -92,12 +95,9 @@ For example, using the structure and draw function we defined above, with a scre
 
 ![](/assets/raylib-2dcamera/In2DMode.png){: .center-image }
 
-If we moved the `DrawRectangle()` function to after the `EndMode2D()`. The red square would now be in the top left corner of the screen because that is the {0, 0} position of the screen. This will stay that way no matter where we set the camera target to as it's being drawn relative to screen, not the world. This isn't what we are looking for now but it's good to remember. It can be used to keep static element on the screen like a score tally, a minimap or a crosshair. You can use the `GetWorldToScreen2D()` and the `GetScreenToWorld2D()` functions to help you move between the world and screen easily. For more information about these functions check out [raylib cheatsheet](https://www.raylib.com/cheatsheet/cheatsheet.html).
+If we moved the `DrawRectangle()` function to after the `EndMode2D()`. The red square would now be in the top left corner of the screen because that is the {0, 0} position of the screen. This will stay that way no matter where we set the camera target to as it's being drawn relative to screen, not the world. This isn't what we are looking for now but it's good to remember. It can be used to keep static element on the screen like a score tally, a minimap or a crosshair. The `GetWorldToScreen2D()` and the `GetScreenToWorld2D()` functions can help you move between the world and screen coordinates easily, useful for mouse interactions. For more information about these functions check out [raylib cheatsheet](https://www.raylib.com/cheatsheet/cheatsheet.html).
 
-![](/assets/raylib-2dcamera/Out2DMode.png){: .center-image }
-
-
-So if move the `DrawRectangle()` function back in-between the 2d camera functions and add in some code to control the movement, like in the first gif, we end up with a red square that we can follow around the world. Perfect, just what we wanted! 
+Now if we move `DrawRectangle()` function back in-between the 2d camera functions and add in some code to control the movement, like in the first gif, we end up with a red square that we can follow around the world. Perfect, just what we wanted! 
 
 ![](/assets/raylib-2dcamera/Camera.gif){: .center-image }
 
@@ -111,7 +111,7 @@ So what did we learn (I hope):
 
 There is a lot more to explore with the 2D camera (you still have zoom and rotate to play with!), and I would suggest you play around with the provided code to see what you can come up with. If you would like some inspiration, a Google doc entitled [Scroll Back - The Theory and Practice of Cameras in Side-Scrollers by Itay Keren](https://docs.google.com/document/d/1iNSQIyNpVGHeak6isbP6AHdHD50gs8MNXF1GCf08efg/pub) is a great showcase of different camera usage in side-scrollers.For some more complex examples, check out the 2D camera_platform example on the raylib git or [on the website](https://www.raylib.com/examples.html). 
 
-The code used in this tutorial is on my [github as gist here](https://gist.github.com/ArchieAtkinson/1a34eaedbf95e16eed6dedd374aeb61a).
+The code used in this tutorial is on my [github as gist here](https://gist.github.com/ArchieAtkinson/5c5758ad68d5cfd55d40430ca8e9b44d).
 
 I hope you found post this helpful. If you have any questions, comments or feedback feel free leave a comment on the [blogs github issue tracker](https://github.com/ArchieAtkinson/archieatkinson.github.io/issues/2) (I will work out proper commenting system one day...) or any of the links in the footer below. Thanks for reading!
 
