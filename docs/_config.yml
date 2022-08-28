@@ -30,8 +30,12 @@ email: inbox@archieatkinson.com
 permalink: :title
 
 # Build settings
-theme: minima
+# theme: minima
+remote_theme: jekyll/minima
+minima:
+  skin: dark
 plugins:
+  - jekyll-remote-theme
   - jekyll-feed
 
 # Exclude from processing.

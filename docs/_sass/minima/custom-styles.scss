@@ -1,0 +1,28 @@
+pre,
+code {
+    color: $text-color-code;
+}
+
+
+.site-title {
+    color: $brand-color;
+    text-decoration: none;
+    &:visited {
+        color: $brand-color;
+      }
+}
+
+a {
+    color: darken($link-color, 0%);
+    text-decoration: none;
+  
+    &:visited {
+        color: darken($link-color, 0%);
+        text-decoration: none;
+    }
+
+    &:hover {
+        color: darken($link-color, 0%);
+        text-decoration: underline;
+    }
+}

@@ -18,7 +18,7 @@ In a video game the world can range from a 2D pixel art dungeon in a rouge like 
 
 When first starting using raylib, you may have created a simple game where you have a box that acts as a player and you control it with the arrow keys. You quickly discover that you are confined to you screen. 
 
-![](/assets/raylib-2dcamera/NoCamera.gif){: .center-image }
+![](/assets/raylib-2dcamera/NoCamera.gif){:style="display:block; margin-left:auto; margin-right:auto"}
 
 So now you want to be able to follow the box? That's where the camera comes in. 
 
@@ -41,7 +41,7 @@ To make use of a camera you need declared it and then assign values to each memb
 
 The target member is the camera's origin in the world. By default, when the offset member is {0, 0}, the camera starts in the top left corner of your screen and finished in the bottom right. Similar to how rectangles are drawn. So if your screen is 500px by 500px and you set the target to the position {-100, -200} you will see anything drawn in the world from {-100, -200} (top left corner) to {400, 300} (bottom right corner). 
 
-![](/assets/raylib-2dcamera/Target.png){: .center-image }
+![](/assets/raylib-2dcamera/Target.png){:style="display:block; margin-left:auto; margin-right:auto"}
 
 Note: If you want this to follow a object like a player, this needs to be updated every time the player moves!
 
@@ -49,7 +49,7 @@ Note: If you want this to follow a object like a player, this needs to be update
 
 The offset member is the origin of the camera on the screen. By default, it is in the top left corner. Changing the offset to `{SCREEN_WIDTH/2, SCREEN_HEIGHT/2}` moves the origin of the camera to the centre screen making the target now reference the centre instead of the top left corner. Using the example from above with the new offset, if the target was set to {-100, -200} you would now see anything drawn in the world from {-350, -450} (top left corner) to {150, 50} (bottom right corner). The target is now in the centre of screen.
 
-![](/assets/raylib-2dcamera/Offset.png){: .center-image }
+![](/assets/raylib-2dcamera/Offset.png){:style="display:block; margin-left:auto; margin-right:auto"}
 
 Note: Unlike target, once this is set, you only need to change it if you want to change the relative position of the object to the screen.
 
@@ -93,13 +93,13 @@ You can see I have indented in the `DrawRectangle()` and `draw_grid()` function.
 
 For example, using the structure and draw function we defined above, with a screen size of 500px by 500px, the displayed region of the world is {-250, -250} to {250, 250} with a red square in the centre at the world position {0, 0}. 
 
-![](/assets/raylib-2dcamera/In2DMode.png){: .center-image }
+![](/assets/raylib-2dcamera/In2DMode.png){:style="display:block; margin-left:auto; margin-right:auto"}
 
 If we moved the `DrawRectangle()` function to after the `EndMode2D()`. The red square would now be in the top left corner of the screen because that is the {0, 0} position of the screen. This will stay that way no matter where we set the camera target to as it's being drawn relative to screen, not the world. This isn't what we are looking for now but it's good to remember. It can be used to keep static element on the screen like a score tally, a minimap or a crosshair. The `GetWorldToScreen2D()` and the `GetScreenToWorld2D()` functions can help you move between the world and screen coordinates easily, useful for mouse interactions. For more information about these functions check out [raylib cheatsheet](https://www.raylib.com/cheatsheet/cheatsheet.html).
 
 Now if we move `DrawRectangle()` function back in-between the 2d camera functions and add in some code to control the movement, like in the first gif, we end up with a red square that we can follow around the world. Perfect, just what we wanted! 
 
-![](/assets/raylib-2dcamera/Camera.gif){: .center-image }
+![](/assets/raylib-2dcamera/Camera.gif){:style="display:block; margin-left:auto; margin-right:auto"}
 
 ## Closing 
 
